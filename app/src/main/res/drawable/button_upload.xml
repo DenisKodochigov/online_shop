@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:width="289dp"
+        android:height="46dp"
+        android:gravity="center"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <size
+                android:width="289dp"
+                android:height="46dp" />
+            <solid android:color="#4E55D7" />
+            <corners android:radius="15dp" />
+        </shape>
+    </item>
+    <item
+        android:start="50dp"
+        android:gravity="center_vertical"
+        android:width="22dp"
+        android:height="22dp"
+        android:drawable="@drawable/upload"
+        tools:ignore="ResourceCycle" />
+</layer-list>

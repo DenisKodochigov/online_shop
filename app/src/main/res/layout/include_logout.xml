@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_trade_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/icon_logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/trade_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal|top"
+        android:text="@string/log_out"
+        android:textAppearance="@style/trade_store"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_trade_store"
+        app:layout_constraintStart_toEndOf="@+id/iv_trade_store"
+        app:layout_constraintTop_toTopOf="@+id/iv_trade_store" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

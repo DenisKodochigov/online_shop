@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_fragment_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:layout_marginBottom="30dp"
+    tools:viewBindingType="androidx.core.widget.NestedScrollView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_heading"
+            style="@style/sign_heading"
+            android:layout_width="@dimen/sign_in_width_text"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="84dp"
+            android:gravity="center_horizontal|top"
+            android:text="@string/sign_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_first_name"
+            style="@style/sign_edit_text"
+            android:autofillHints="name"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_heading"
+            tools:ignore="LabelFor,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/et_last_name"
+            style="@style/sign_edit_text"
+            android:autofillHints="name"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_first_name"
+            tools:ignore="LabelFor,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/et_email"
+            style="@style/sign_edit_text"
+            android:autofillHints="emailAddress"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_last_name"
+            tools:ignore="LabelFor,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/sign_edit_text"
+            android:drawableEnd="@drawable/ic_eye_off"
+            android:ems="10"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:paddingEnd="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_email" />
+
+        <Button
+            android:id="@+id/bt_sign_in"
+            android:layout_width="@dimen/width_edit_text"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/button"
+            android:text="@string/sign_in"
+            android:textAppearance="@style/sign_text_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_password"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/tv_already_hav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:gravity="start|center_vertical"
+            android:text="@string/already_hav"
+            android:textAppearance="@style/already_hav"
+            app:layout_constraintStart_toStartOf="@+id/bt_sign_in"
+            app:layout_constraintTop_toBottomOf="@+id/bt_sign_in"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/tv_login"
+            style="@style/log_in"
+            android:gravity="center_horizontal|top"
+            android:text="@string/log_in"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_already_hav"
+            app:layout_constraintStart_toEndOf="@+id/tv_already_hav"
+            app:layout_constraintTop_toTopOf="@+id/tv_already_hav"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/ll_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_login">
+
+            <ImageView
+                android:id="@+id/iv_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_google" />
+
+            <TextView
+                android:id="@+id/tv_sign_google"
+                style="@style/sign_in_with"
+                android:layout_gravity="center"
+                android:text="@string/sign_in_with_google" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_apple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_google">
+
+            <ImageView
+                android:id="@+id/iv_apple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_apple" />
+
+            <TextView
+                android:id="@+id/tv_sign_apple"
+                style="@style/sign_in_with"
+                android:layout_gravity="center"
+                android:text="@string/sign_in_with_apple" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

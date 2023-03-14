@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="9dp"
+    android:background="@color/background_app"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="174dp"
+        android:layout_height="221dp"
+        android:background="@drawable/gradient_list"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/iv_favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="183dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/icon_favourite_card"
+        app:layout_constraintStart_toStartOf="@id/poster"
+        app:layout_constraintTop_toTopOf="@id/poster"
+        tools:ignore="ImageContrastCheck" />
+    <ImageView
+        android:id="@+id/iv_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_plus1"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/iv_favourite"
+        app:layout_constraintTop_toTopOf="@id/iv_favourite"
+        app:layout_constraintBottom_toBottomOf="@id/iv_favourite"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/tv_discount"
+        style="@style/home_discount"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/rectangle_red"
+        android:gravity="center"
+        android:text="@string/off_string"
+        app:layout_constraintStart_toStartOf="@id/poster"
+        app:layout_constraintTop_toTopOf="@id/poster"
+        tools:ignore="TextContrastCheck" />
+    <TextView
+        android:id="@+id/tv_name_group"
+        style="@style/home_phones"
+        android:text="@string/phones"
+        android:layout_marginTop="123dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/rectangle_1"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="@id/poster"
+        app:layout_constraintTop_toTopOf="@id/poster"
+        />
+
+    <TextView
+        android:id="@+id/tv_name_product"
+        style="@style/home_product1"
+        android:layout_height="36dp"
+        android:width="87dp"
+        android:layout_marginTop="9dp"
+        android:gravity="start|top"
+        android:text="@string/name_product"
+        app:layout_constraintStart_toStartOf="@id/tv_name_group"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_group"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/tv_price_product"
+        style="@style/home_price"
+        android:layout_marginTop="12dp"
+        android:gravity="start|top"
+        android:text="@string/price_product1"
+        app:layout_constraintStart_toStartOf="@id/tv_name_group"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_product"
+        tools:ignore="TextContrastCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

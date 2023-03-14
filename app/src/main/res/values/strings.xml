@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">online_shop</string>
+    <string name="title_home">Home</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_box">Box</string>
+    <string name="title_note">Note</string>
+    <string name="title_profile">Profile</string>
+    <string name="sign_in_with_apple">Sign in with Apple</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="sign_in">Sign in</string>
+
+    <string name="log_in">Log in</string>
+    <string name="todo">TODO</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="already_hav">Already have an account?</string>
+    <string name="welcome_bac">Welcome back</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="profile">Profile</string>
+    <string name="change_photo">Change photo</string>
+    <string name="satria_adhi">Satria Adhi Pradana</string>
+    <string name="upload_item">Upload item</string>
+    <string name="trade_store">Trade store</string>
+    <string name="payment_met">Payment method</string>
+    <string name="balance">Balance</string>
+    <string name="balance_">$ 1593</string>
+    <string name="trade_history">Trade history</string>
+    <string name="restore_pur">Restore Purchase</string>
+    <string name="help">Help</string>
+    <string name="log_out">Log out</string>
+    <string name="what_are_yo">What are you looking for ?</string>
+    <string name="phones">Phones</string>
+    <string name="headphones">Headphones</string>
+    <string name="games">Games</string>
+    <string name="cars">Cars</string>
+    <string name="furniture">Furniture</string>
+    <string name="kids">Kids</string>
+    <string name="view_all">View all</string>
+    <string name="latest_deal">Latest deals</string>
+    <string name="flash_deal">Flash Sale</string>
+    <string name="brands_header">Brands</string>
+    <string name="kit_deal">Header</string>
+    <string name="content_description">contentDescription</string>
+    <string name="name_product">Samsung S10</string>
+    <string name="price_product">$ 180,000</string>
+    <string name="price_product1">$ 33,00</string>
+    <string name="off_string">% off</string>
+
+    <string name="error401">Запрос к удаленному ресурсу закончился неудачей, с кодом HTTP 401: Пустой или неправильный токен.</string>
+    <string name="error402">Запрос к удаленному ресурсу закончился неудачей, с кодом HTTP 402: Превышен лимит запросов(или дневной, или общий).</string>
+    <string name="error404">Запрос к удаленному ресурсу закончился неудачей, с кодом HTTP 404: </string>
+    <string name="error429">Запрос к удаленному ресурсу закончился неудачей, с кодом HTTP 429: Слишком много запросов. Общий лимит - 20 запросов в секунду.</string>
+    <string name="errorUser">Ошибка операции.</string>
+
+    <string name="title_sign_in">"Sign in"</string>
+
+    <string name="exist_person">Такой пользователь существует</string>
+    <string name="enter_data">Введите данные пользователя</string>
+    <string name="google_account">Авторизация через Google</string>
+    <string name="apple_account">Авторизация через Apple</string>
+    <string name="error_login">Не правильно введены имя, пароль </string>
+    <string name="error_login_enter">Необходимо ввести и имя и пароль</string>
+    <string name="validate_email">Не корректро введен электронный адрес</string>
+
+    <string name="tutorial">Menu</string>
+    <string name="location">Location</string>
+    <string name="toolbar_title1">Trade by </string>
+    <string name="toolbar_title2">bata</string>
+    <string name="toolbar_location">Location</string>
+</resources>

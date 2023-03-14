@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="style_app" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/general</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    <style name="toolbar_title" parent="style_app">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- Fragment Sign In -->
+    <style name="sign_edit_text" parent="style_app">
+        <item name="android:textSize">11sp</item>
+        <item name="android:background">@drawable/sign_edit_text_shape</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">@dimen/width_edit_text</item>
+        <item name="android:layout_height">@dimen/height_edit_text</item>
+        <item name="android:layout_marginTop">35dp</item>
+    </style>
+    <style name="sign_heading" parent="style_app">
+        <item name="android:textSize">26sp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#161826</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_horizontal|top</item>
+    </style>
+    <style name="sign_button" parent="style_app">
+        <item name="android:textSize">11sp</item>
+        <item name="android:background">#4E55D7</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">@dimen/width_edit_text</item>
+        <item name="android:layout_height">@dimen/height_edit_text</item>
+        <item name="android:layout_marginTop">35dp</item>
+    </style>
+    <style name="sign_text_button" parent="style_app">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#EAEAEA</item>
+    </style>
+    <style name="already_hav" parent="style_app">
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#808080</item>
+    </style>
+    <style name="log_in" parent="style_app">
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#254FE6</item>
+        <item name="android:paddingStart">8dp</item>
+    </style>
+    <style name="sign_in_with" parent="style_app">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:layout_marginStart">11dp</item>
+    </style>
+    <!-- Fragment Login -->
+    <style name="welcome_bac" parent="style_app">
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_marginTop">153dp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#161826</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_horizontal|top</item>
+    </style>
+    <style name="first_name" parent="style_app">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#7B7B7B</item>
+    </style>
+    <style name="password" parent="style_app">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#7B7B7B</item>
+    </style>
+    <style name="login" parent="style_app">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#EAEAEA</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Fragment Profile -->
+    <style name="profile" parent="style_app">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="change_photo" parent="style_app">
+        <item name="android:textSize">8sp</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="android:textColor">#808080</item>
+    </style>
+    <style name="satria_adhi" parent="style_app">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#3F3F3F</item>
+    </style>
+    <style name="text_button" parent="style_app">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#EAEAEA</item>
+    </style>
+    <style name="trade_store" parent="style_app">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#040402</item>
+    </style>
+    <!-- Fragment Home -->
+    <style name="what_are_yo" parent="style_app">
+        <item name="android:textSize">9sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#5B5B5B</item>
+    </style>
+    <style name="home_text_icon" parent="style_app">
+        <item name="android:layout_marginTop">11dp</item>
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="android:textColor">#A6A7AB</item>
+    </style>
+    <style name="home_latest_deal" parent="style_app">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#040402</item>
+    </style>
+    <style name="home_view_all" parent="style_app">
+        <item name="android:textSize">9sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#808080</item>
+    </style>
+    <style name="home_phones" parent="style_app">
+        <item name="android:textSize">6sp</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="android:textColor">#070604</item>
+    </style>
+    <style name="home_product" parent="style_app">
+        <item name="android:textSize">9sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="home_product1" parent="style_app">
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="home_price" parent="style_app">
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="home_discount" parent="style_app">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="location" parent="style_app">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:textColor">#5B5B5B</item>
+    </style>
+</resources>

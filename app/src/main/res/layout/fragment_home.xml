@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_fragment_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_marginBottom="60dp"
+    tools:viewBindingType="androidx.core.widget.NestedScrollView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="11dp"
+        android:paddingTop="?attr/actionBarSize">
+
+        <EditText
+            android:id="@+id/et_what_are_yo"
+            android:layout_width="262dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/home_edit_text_shape"
+            android:drawableEnd="@drawable/ic_search"
+            android:drawablePadding="18dp"
+            android:gravity="center"
+            android:hint="@string/what_are_yo"
+            android:padding="6dp"
+            android:paddingEnd="18dp"
+            android:textAppearance="@style/what_are_yo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry,TouchTargetSizeCheck" />
+
+        <include
+            android:id="@+id/include_icon_home"
+            layout="@layout/include_icon_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="11dp"
+            android:layout_marginTop="17dp"
+            app:layout_constraintTop_toBottomOf="@id/et_what_are_yo" />
+
+        <include
+            android:id="@+id/include_latest_home"
+            layout="@layout/include_kit_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            app:layout_constraintTop_toBottomOf="@id/include_icon_home" />
+
+        <include
+            android:id="@+id/include_flash_home"
+            layout="@layout/include_kit_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            app:layout_constraintTop_toBottomOf="@id/include_latest_home" />
+
+        <include
+            android:id="@+id/include_brands_home"
+            layout="@layout/include_kit_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            app:layout_constraintTop_toBottomOf="@id/include_flash_home" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
