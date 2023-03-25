@@ -3,10 +3,8 @@ package com.example.online_shop.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.online_shop.data.DataRepository
-import com.example.online_shop.data.api.FlashDTO
-import com.example.online_shop.data.api.LatestDTO
-import com.example.online_shop.data.api.ProductDTO
-import com.example.online_shop.data.api.ProductDiscountDTO
+import com.example.online_shop.data.api.dto.FlashDTO
+import com.example.online_shop.data.api.dto.LatestDTO
 import com.example.online_shop.entity.ErrorApp
 import com.example.online_shop.entity.Person
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,11 +15,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(): ViewModel() {
-    private val dataRepository = DataRepository()
+class HomeViewModel @Inject constructor(
+    private var dataRepository: DataRepository,
+    private val errorApp: ErrorApp): ViewModel() {
 
-    private var _personGet = MutableStateFlow<Person?>(null)
-    var personGet = _personGet.asStateFlow()
+    private var _person = MutableStateFlow<Person?>(null)
+    var person = _person.asStateFlow()
     private var _latest = MutableStateFlow<LatestDTO?>(null)
     var latest = _latest.asStateFlow()
     private var _flash = MutableStateFlow<FlashDTO?>(null)
@@ -29,14 +28,15 @@ class HomeViewModel @Inject constructor(): ViewModel() {
     private var _brands = MutableStateFlow<LatestDTO?>(null)
     var brands = _brands.asStateFlow()
 
-    fun loginPerson(person: Person) {
+
+    fun getPerson(person: Person) {
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
-                _personGet.value = null
+                _person.value = null
                 dataRepository.loginPerson(person)
             }.fold(
-                onSuccess = { _personGet.value = it },
-                onFailure = { ErrorApp().errorApi(it.message!!)}
+                onSuccess = { _person.value = it },
+                onFailure = { errorApp.errorApi(it.message!!)}
             )
         }
     }
@@ -45,9 +45,8 @@ class HomeViewModel @Inject constructor(): ViewModel() {
             kotlin.runCatching {
                 dataRepository.getLatest(person)
             }.fold(
-                onSuccess = { _latest.value = it
-                            },
-                onFailure = { ErrorApp().errorApi(it.message!!)}
+                onSuccess = { _latest.value = it },
+                onFailure = { errorApp.errorApi(it.message!!)}
             )
         }
     }
@@ -57,7 +56,7 @@ class HomeViewModel @Inject constructor(): ViewModel() {
                 dataRepository.getFlash()
             }.fold(
                 onSuccess = { _flash.value = it },
-                onFailure = { ErrorApp().errorApi(it.message!!)}
+                onFailure = { errorApp.errorApi(it.message!!)}
             )
         }
     }
@@ -67,7 +66,7 @@ class HomeViewModel @Inject constructor(): ViewModel() {
                 dataRepository.getBrands()
             }.fold(
                 onSuccess = { _brands.value = it },
-                onFailure = { ErrorApp().errorApi(it.message!!)}
+                onFailure = { errorApp.errorApi(it.message!!)}
             )
         }
     }

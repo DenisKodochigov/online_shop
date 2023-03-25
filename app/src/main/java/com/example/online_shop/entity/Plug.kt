@@ -1,9 +1,9 @@
 package com.example.online_shop.entity
 
-import com.example.online_shop.data.api.FlashDTO
-import com.example.online_shop.data.api.LatestDTO
-import com.example.online_shop.data.api.ProductDTO
-import com.example.online_shop.data.api.ProductDiscountDTO
+import com.example.online_shop.data.api.dto.FlashDTO
+import com.example.online_shop.data.api.dto.LatestDTO
+import com.example.online_shop.data.api.dto.ProductDTO
+import com.example.online_shop.data.api.dto.ProductDiscountDTO
 
 object Plug {
     fun person() = Person(
@@ -138,4 +138,5 @@ object Plug {
             ),
         )
     )
+
 }

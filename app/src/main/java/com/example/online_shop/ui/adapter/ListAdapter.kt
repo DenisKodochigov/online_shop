@@ -1,22 +1,24 @@
 package com.example.online_shop.ui.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.online_shop.App
 import com.example.online_shop.R
 import com.example.online_shop.animations.LoadImageURLShow
-import com.example.online_shop.data.api.ProductDTO
-import com.example.online_shop.data.api.ProductDiscountDTO
+import com.example.online_shop.data.api.dto.ProductDTO
+import com.example.online_shop.data.api.dto.ProductDiscountDTO
 import com.example.online_shop.databinding.ItemFlashStoreHomeBinding
 import com.example.online_shop.databinding.ItemLatestHomeBinding
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import javax.inject.Inject
 
-class ListAdapter @Inject constructor(private val onClick: (item: Any) -> Unit):
+class ListAdapter @Inject constructor( private val onClick: (item: Any) -> Unit):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    lateinit var cont: Context
 
     private var items: List<Any> = emptyList()
 
@@ -27,13 +29,16 @@ class ListAdapter @Inject constructor(private val onClick: (item: Any) -> Unit):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
+
+        cont = parent.context
+        val viewHolder = when (viewType) {
             R.layout.item_latest_home -> LatestVH(
                 ItemLatestHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             R.layout.item_flash_store_home -> FlashVH(
                 ItemFlashStoreHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             else -> throw IllegalArgumentException("Unsupported layout")
         }
+        return viewHolder
     }
 
     @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
@@ -60,7 +65,7 @@ class ListAdapter @Inject constructor(private val onClick: (item: Any) -> Unit):
                     holder.binding.tvNameProduct.text = item.name
                     holder.binding.tvPriceProduct.text = dec.format(item.price)
                     holder.binding.tvDiscount.text = item.discount.toString() +
-                            App.context.getString(R.string.off_string)
+                            cont.getString(R.string.off_string)
                     animationCard.setAnimation( holder.binding.poster, item.image_url, R.dimen.latest_card_radius)
                 }
             }

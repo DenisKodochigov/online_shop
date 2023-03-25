@@ -1,14 +1,12 @@
 package com.example.online_shop.data.api
 
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import com.example.online_shop.data.api.dto.FlashDTO
+import com.example.online_shop.data.api.dto.LatestDTO
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
-private const val SERVER_API = "https://run.mocky.io/"
-
-interface MockyAPI {
+interface MoskyAPI {
 
     @Headers("Accept: application/json", "Content-type: application/json")
     @GET("/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7")
@@ -22,13 +20,4 @@ interface MockyAPI {
     @Headers("Accept: application/json", "Content-type: application/json")
     @GET("/v3/cc0071a1-f06e-48fa-9e90-b1c2a61eaca7")
     suspend fun getBrands(): LatestDTO
-}
-
-val retrofitApi: MockyAPI by lazy {
-    Retrofit
-        .Builder()
-        .baseUrl(SERVER_API)
-        .addConverterFactory(MoshiConverterFactory.create())
-        .build()
-        .create(MockyAPI::class.java)
 }

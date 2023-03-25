@@ -1,12 +1,7 @@
 package com.example.online_shop.ui.profile
 
-import android.content.Context
-import android.graphics.Bitmap
-import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.online_shop.App
 import com.example.online_shop.data.DataRepository
 import com.example.online_shop.entity.ErrorApp
 import com.example.online_shop.entity.Person
@@ -18,49 +13,32 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(): ViewModel() {
-    private val dataRepository = DataRepository()
+class ProfileViewModel @Inject constructor(
+    private var dataRepository: DataRepository,
+    private val errorApp: ErrorApp): ViewModel() {
 
     private var _person = MutableStateFlow<Person?>(null)
     var person = _person.asStateFlow()
 
-    fun loginPerson(person: Person) {
+    fun setPerson(person: Person) {
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
                 _person.value = null
                 dataRepository.loginPerson(person)
             }.fold(
-                onSuccess = {
-                    Log.d("KDS", "savePerson.loginPerson")
-                    _person.value = it },
-                onFailure = { ErrorApp().errorApi(it.message!!)}
+                onSuccess = { _person.value = it },
+                onFailure = { errorApp.errorApi(it.message!!) }
             )
         }
     }
 
-    fun saveImage(context: Context, imageBitmap: Bitmap, person: Person) {
-        viewModelScope.launch(Dispatchers.IO) {
-            kotlin.runCatching {
-                val fileNameImage = App.person.firstName.toString() + App.person.lastName.toString() + ".jpg"
-                person.photo = fileNameImage
-                dataRepository.saveImage(context, imageBitmap, fileNameImage)
-            }.fold(
-                onSuccess = {
-                    Log.d("KDS", "ProfileViewModel.saveImage")
-                    savePerson(person) },
-                onFailure = { ErrorApp().errorApi(it.message!!)}
-            )
-        }
-    }
-    private fun savePerson(person: Person) {
+    fun savePerson(person: Person) {
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
                 dataRepository.savePerson(person)
             }.fold(
-                onSuccess = {
-                    Log.d("KDS", "savePerson.savePerson")
-                    loginPerson(person)},
-                onFailure = { ErrorApp().errorApi(it.message!!)}
+                onSuccess = {},
+                onFailure = { errorApp.errorApi(it.message!!) }
             )
         }
     }

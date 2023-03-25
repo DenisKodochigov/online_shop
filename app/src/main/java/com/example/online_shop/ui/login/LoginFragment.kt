@@ -15,7 +15,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.transition.TransitionInflater
-import com.example.online_shop.App
 import com.example.online_shop.R
 import com.example.online_shop.databinding.FragmentLoginBinding
 import com.example.online_shop.entity.Person
@@ -25,12 +24,12 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
-class LoginFragment: Fragment() {
+class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private val viewModel: LoginViewModel by viewModels()
-    private var person = Person()
+    private val person = Person()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,31 +38,41 @@ class LoginFragment: Fragment() {
         enterTransition = inflater.inflateTransition(R.transition.slide_right)
 
     }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
 
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        (activity as AppCompatActivity).findViewById<Toolbar>(R.id.toolbar)?.visibility = View.INVISIBLE
-        (activity as AppCompatActivity).findViewById<Toolbar>(R.id.toolbar1)?.visibility = View.INVISIBLE
-        (activity as AppCompatActivity).findViewById<BottomNavigationView>(R.id.nav_view).visibility = View.INVISIBLE
+        (activity as AppCompatActivity).findViewById<Toolbar>(R.id.toolbar)?.visibility =
+            View.INVISIBLE
+        (activity as AppCompatActivity).findViewById<Toolbar>(R.id.toolbar1)?.visibility =
+            View.INVISIBLE
+        (activity as AppCompatActivity).findViewById<BottomNavigationView>(R.id.nav_view).visibility =
+            View.INVISIBLE
         viewModel.presentToNull()
         return binding.root
     }
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
-            etFirstName.setText(App.person.firstName ?: "") //= firstName
-            etPassword.setText(App.person.password ?: "") //= firstName
+            etFirstName.setText(arguments?.getString("firstName") ?: "") //= firstName
+            etPassword.setText(arguments?.getString("password") ?: "") //= firstName
 
             btLogin.setOnClickListener {
                 person.firstName = binding.etFirstName.text.toString()
                 person.password = binding.etPassword.text.toString()
-                if (person.firstName != "" && person.password != ""){
+                if (person.firstName != "" && person.password != "") {
                     viewModel.loginPerson(person)
                 } else {
-                    Toast.makeText(context,getString(R.string.error_login_enter),Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        context,
+                        getString(R.string.error_login_enter),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
             }
@@ -72,8 +81,9 @@ class LoginFragment: Fragment() {
                 if (event.action == MotionEvent.ACTION_DOWN) {
                     if (event.rawX >= (etPassword.right -
                                 etPassword.compoundDrawables[drawableRight].bounds.width() -
-                                etPassword.paddingEnd)) {
-                        if (etPassword.inputType == InputType.TYPE_CLASS_TEXT){
+                                etPassword.paddingEnd)
+                    ) {
+                        if (etPassword.inputType == InputType.TYPE_CLASS_TEXT) {
                             etPassword.inputType =
                                 InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                         } else {
@@ -85,15 +95,19 @@ class LoginFragment: Fragment() {
                 false
             }
 
-            viewModel.loginPerson.onEach { person ->
-                if (person == null){
-                }
-                else if (person == Person() ) {
-                    Toast.makeText(context, context?.getString(R.string.error_login),
-                        Toast.LENGTH_SHORT).show()
+            viewModel.present.onEach { person ->
+                if (person == null) {
+                } else if (person == Person()) {
+                    Toast.makeText(
+                        context, context?.getString(R.string.error_login),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 } else {
-                    App.person.cp(person)
-                    findNavController().navigate(R.id.action_nav_login_to_nav_home)
+                    val bundle = Bundle().apply {
+                        putString("firstName", etFirstName.text.toString())
+                        putString("password", etPassword.text.toString())
+                    }
+                    findNavController().navigate(R.id.action_nav_login_to_nav_home, bundle)
                 }
             }.launchIn(viewLifecycleOwner.lifecycleScope)
         }

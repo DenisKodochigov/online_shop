@@ -29,8 +29,8 @@ interface DataDao {
     fun getPersons(): List<PersonDB>?
 
     //Select all entries from person
-    @Query("SELECT 1 FROM person WHERE firstName = :firstName AND lastName = :lastName AND password= :password")
-    fun checkPerson(firstName:String, lastName:String, password: String): Boolean
+    @Query("SELECT 1 FROM person WHERE firstName = :firstName AND lastName = :lastName AND email= :email")
+    fun checkPerson(firstName:String, lastName:String, email: String): Boolean?
 
     @Query("SELECT * FROM person WHERE firstName = :firstName AND password = :password")
     fun getPerson(firstName:String, password:String): PersonDB?

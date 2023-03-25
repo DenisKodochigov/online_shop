@@ -13,26 +13,27 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(): ViewModel() {
-    private val dataRepository = DataRepository()
+class LoginViewModel @Inject constructor(
+    private var dataRepository: DataRepository,
+    private val errorApp: ErrorApp): ViewModel() {
 
-    private var _loginPerson = MutableStateFlow<Person?>(null)
-    var loginPerson = _loginPerson.asStateFlow()
+    private var _present = MutableStateFlow<Person?>(null)
+    var present = _present.asStateFlow()
 
 
     fun loginPerson(person: Person) {
         viewModelScope.launch(Dispatchers.IO) {
             kotlin.runCatching {
-                _loginPerson.value = null
+                _present.value = null
                 dataRepository.loginPerson(person)
             }.fold(
                 onSuccess = {
-                    _loginPerson.value = it },
-                onFailure = { ErrorApp().errorApi(it.message!!)}
+                    _present.value = it },
+                onFailure = { errorApp.errorApi(it.message!!)}
             )
         }
     }
     fun presentToNull() {
-        _loginPerson.value = null
+        _present.value = null
     }
 }
